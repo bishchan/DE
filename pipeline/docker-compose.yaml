@@ -91,6 +91,7 @@ services:
     depends_on:
       kestra_postgres:
         condition: service_started
+    
 
 
 
