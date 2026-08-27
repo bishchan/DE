@@ -1,0 +1,40 @@
+id: build_and_run_docker
+namespace: company.data_engineering
+
+inputs:
+  - id: year
+    type: INT
+    defaults: 2020
+  - id: month
+    type: INT
+    defaults: 1
+
+tasks:
+  - id: repository_workspace
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+
+      - id: clone_repo
+        type: io.kestra.plugin.git.Clone
+        url: https://github.com/bishchan/DE
+
+      - id: build_image
+        type: io.kestra.plugin.docker.Build
+        dockerfile: pipeline/Dockerfile
+        tags:
+          - taxi_ingest:v001
+
+      - id: run_container
+        type: io.kestra.plugin.docker.Run
+        containerImage: taxi_ingest:v001
+        networkMode: pipeline_default
+        commands:
+          - "--pg-user=root"
+          - "--pg-pass=root"
+          - "--pg-host=pgdatabase"
+          - "--pg-port=5432"
+          - "--pg-db=ny_taxi"
+          - "--target-table=yellow_taxi_trips"
+          - "--zones-table=taxi_zones"
+          - "--year={{ inputs.year }}"
+          - "--month={{ inputs.month }}"
