@@ -12,5 +12,5 @@ RUN uv sync --locked
 
 COPY pipeline/ingest_data.py .
 
-ENTRYPOINT ["python", "ingest_data.py"]
+ENTRYPOINT ["python", "ingest_data.py"]. 
 
