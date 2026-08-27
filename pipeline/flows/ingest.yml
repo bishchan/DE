@@ -4,7 +4,7 @@ namespace: company.data_engineering
 inputs:
   - id: year
     type: INT
-    defaults: 2020
+    defaults: 2021
   - id: month
     type: INT
     defaults: 1
