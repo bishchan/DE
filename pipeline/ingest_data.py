@@ -59,33 +59,33 @@ parse_dates = [
 
 chunksize = 100000
 
-    
-# @click.command()
-# @click.option('--pg-user', default='root', help='PostgreSQL user')
-# @click.option('--pg-pass', default='root', help='PostgreSQL password')
-# @click.option('--pg-host', default='localhost', help='PostgreSQL host')
-# @click.option('--pg-port', default=5432, type=int, help='PostgreSQL port')
-# @click.option('--pg-db', default='ny_taxi', help='PostgreSQL database name')
-# @click.option('--year', default=2021, type=int, help='Year of data')
-# @click.option('--month', default=1, type=int, help='Month of data')
-# @click.option('--target-table', default='yellow_taxi_data', help='Target table name')
-# @click.option('--zones-table', default='taxi_zones', help='Zones lookup table name')
-# @click.option('--chunksize', default=100000, type=int, help='Rows per chunk')
+   
+@click.command()
+@click.option('--pg-user', default='root', help='PostgreSQL user')
+@click.option('--pg-pass', default='root', help='PostgreSQL password')
+@click.option('--pg-host', default='localhost', help='PostgreSQL host')
+@click.option('--pg-port', default=5432, type=int, help='PostgreSQL port')
+@click.option('--pg-db', default='ny_taxi', help='PostgreSQL database name')
+@click.option('--year', default=2021, type=int, help='Year of data')
+@click.option('--month', default=1, type=int, help='Month of data')
+@click.option('--target-table', default='yellow_taxi_data', help='Target table name')
+@click.option('--zones-table', default='taxi_zones', help='Zones lookup table name')
+@click.option('--chunksize', default=100000, type=int, help='Rows per chunk')
 
 
-# def run(pg_user, pg_pass, pg_host, pg_port, pg_db, year, month, target_table, zones_table, chunksize):
+def run(pg_user, pg_pass, pg_host, pg_port, pg_db, year, month, target_table, zones_table, chunksize):
 
-pg_user = 'root'
-pg_pass = 'root'
-pg_host = 'pgdatabase'
-pg_port = 5432
-pg_db = 'ny_taxi'
-year = 2021
-month = 1
-target_table = 'yellow_taxi_data'
-zones_table = 'taxi_zones'   
+# pg_user = 'root'
+# pg_pass = 'root'
+# pg_host = 'pgdatabase'
+# pg_port = 5432
+# pg_db = 'ny_taxi'
+# year = 2021
+# month = 1
+# target_table = 'yellow_taxi_trips'
+# zones_table = 'taxi_zones'   
 
-def run():
+# def run():
     
     
 # Read a sample of the data
